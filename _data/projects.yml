@@ -1,0 +1,52 @@
+# ---------------------------------------------------------------------------
+# Projects shown in the "Selected work" section of index.html.
+# Add a project by copying a block. Set `featured: true` on ONE project to give
+# it the large highlighted card (keep it first).
+#   name        — project title
+#   tag         — small label above the title (defaults to "Open source")
+#   description — one or two sentences
+#   stack       — tech line shown under the description
+#   repo        — link the card points to
+# ---------------------------------------------------------------------------
+- name: DrawBox
+  featured: true
+  tag: Featured · Open source
+  description: A Kotlin Multiplatform drawing library with a pen tool, undo stack, and export — originally Android-only, now running across Android, iOS, Web, and Desktop.
+  stack: Kotlin Multiplatform · Compose
+  repo: https://github.com/akshay2211/DrawBox
+
+- name: Universal Context Pipeline
+  tag: Open source
+  description: A local-first MCP server that indexes your notes, code, and past Claude chats into one searchable tool — no cloud, no telemetry, single Rust binary.
+  stack: Rust · MCP
+  repo: https://github.com/akshay2211/universal-context-pipeline
+
+- name: statsvg_rs
+  tag: Open source
+  description: A GitHub stats card renderer — one Rust program that produces both a profile card and a stripped-down lifetime-stats card, refreshed every six hours.
+  stack: Rust · SVG
+  repo: https://github.com/akshay2211/statsvg_rs
+
+- name: PixImagePicker
+  tag: Open source
+  description: A drop-in Android image-picker library that mirrors the WhatsApp image-picking experience.
+  stack: Kotlin · Android
+  repo: https://github.com/akshay2211/PixImagePicker
+
+- name: BubbleTabBar
+  tag: Open source
+  description: A bottom navigation bar for Android with customizable bubble-shaped tab indicators.
+  stack: Kotlin · Android
+  repo: https://github.com/akshay2211/BubbleTabBar
+
+- name: Paper
+  tag: Open source
+  description: An offline-first Android notes app built in Jetpack Compose with MVVM, DataStore, Room, and Coroutines.
+  stack: Kotlin · Jetpack Compose
+  repo: https://github.com/akshay2211/Paper
+
+- name: NYTimes-Compose
+  tag: Open source
+  description: A minimal, offline-first Android client for the NYTimes Top Stories API — Jetpack Compose, MVVM, Room, and Coil.
+  stack: Kotlin · Jetpack Compose
+  repo: https://github.com/akshay2211/NYTimes-Compose

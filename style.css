@@ -116,12 +116,16 @@ body.scrolled .site-header{
 }
 
 .wordmark{
-    font-size:19px;
-    font-weight:700;
-    letter-spacing:-.01em;
-    color:var(--fg);
+    display:inline-flex;
+    align-items:center;
+    color:var(--fg);              /* drives currentColor in the inline logo */
 }
 .wordmark-dot{color:var(--accent)}
+
+/* Inline brand SVGs: letters follow currentColor (theme text color);
+   the accent squares use the site gold accent (--accent). */
+.brand-logo{height:20px;width:auto}
+.brand-lockup{height:40px;width:auto}
 
 .site-nav{
     display:flex;

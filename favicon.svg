@@ -1,7 +1,1 @@
-<!-- PLACEHOLDER favicon — replace with the real Redigit brand mark. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Redigit">
-  <rect width="64" height="64" rx="14" fill="#1d1e21"/>
-  <text x="50%" y="50%" dy="0.02em" text-anchor="middle" dominant-baseline="central"
-        font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
-        font-size="38" font-weight="700" fill="#e9c46a">R</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#e9c46a"/><svg x="26.52" y="20.00" width="46.96" height="60.00" viewBox="0.01 0.00 120.32 153.72"><path d="M0 0q7 9.23 7 23.06 0 9.23-3.21 16.47A33.5 33.5 0 0 1-5.43 51.8q-6.02 5.02-14.66 7.66-8.65 2.63-19.52 2.63h-41.83v-8.4h41.83q18.12 0 27.59-7.99t9.47-22.64q0-14.5-9.47-22.57t-27.59-8.07h-41.83V-53.2h9.38v37.39h32.45q2.8 0 5.44.16 2.63.17 5.1.5L-1.89-53.2H8.8L-19.85-13Q-7-9.23 0 0" fill="#1d1e21" transform="matrix(1.33333 0.0 0.0 -1.33333 108.6 82.79)"/></svg></svg>

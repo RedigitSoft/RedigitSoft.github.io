@@ -1,0 +1,51 @@
+# ---------------------------------------------------------------------------
+# Site configuration for redigit.io (GitHub Pages builds this with Jekyll).
+# Edit values here and in _data/projects.yml — the HTML pulls from both.
+# ---------------------------------------------------------------------------
+title: Redigit Softwares
+# Used in the <title> tag and og:title / twitter:title.
+tagline: Redigit Softwares — Thoughtful cross-platform software
+description: >-
+  Redigit Softwares Private Limited builds apps, libraries, backends, and
+  developer tools — specializing in Kotlin Multiplatform and Compose
+  Multiplatform for Android, iOS, Web, and Desktop.
+# Shorter blurb for social cards (Open Graph / Twitter).
+social_description: >-
+  We build apps, libraries, backends, and developer tools — specializing in
+  Kotlin Multiplatform and Compose Multiplatform for Android, iOS, Web, and
+  Desktop.
+url: "https://redigit.io"
+baseurl: ""
+lang: en
+# 1200x630 share image, relative to the site root. Add the file to the repo.
+og_image: /og-image.png
+# Google Analytics 4 Measurement ID — loaded only in production builds.
+google_analytics: G-HH52G80X83
+
+# Company / contact details ---------------------------------------------------
+# Anything still set to PLACEHOLDER needs a real value before launch.
+company:
+  legal_name: Redigit Softwares Private Limited
+  short_name: Redigit
+  email: hello@redigit.io
+  github: https://github.com/RedigitSoft
+  linkedin: https://www.linkedin.com/company/redigit-softwares
+  founder_name: Akshay Sharma
+  founder_url: https://ak1.io
+  # Optional legal registration details — leave blank to hide the footer line.
+  cin: ""
+  gstin: "08AANCR2926E1Z9"
+  registered_office: "Jaipur"
+
+# Contact form (https://web3forms.com) — paste your free access key here.
+web3forms_key: a47d496f-31e4-4276-a573-93f7bb166622
+
+# Jekyll build ---------------------------------------------------------------
+exclude:
+  - README.md
+  - LICENSE
+  - .idea
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor

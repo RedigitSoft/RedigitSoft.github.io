@@ -1,3 +1,7 @@
+---
+# Front matter (required so Jekyll renders the Liquid tags below).
+# Content lives in _config.yml (company/contact) and _data/projects.yml (work).
+---
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
@@ -5,27 +9,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1d1e21">
 
+    <!-- Google Analytics 4 — only in production so local dev doesn't skew stats. -->
+    {% if jekyll.environment == "production" and site.google_analytics %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', '{{ site.google_analytics }}');
+    </script>
+    {% endif %}
+
     <!-- ============================ SEO ============================ -->
-    <title>Redigit Softwares — Thoughtful cross-platform software</title>
-    <meta name="description" content="Redigit Softwares Private Limited builds thoughtful cross-platform apps and libraries — Kotlin Multiplatform and Compose Multiplatform for Android, iOS, Web, and Desktop.">
-    <link rel="canonical" href="https://redigit.io/">
+    <!-- Content comes from _config.yml (title, description, url, og_image). -->
+    <title>{{ site.tagline }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <link rel="canonical" href="{{ site.url }}/">
 
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Redigit Softwares">
-    <meta property="og:title" content="Redigit Softwares — Thoughtful cross-platform software">
-    <meta property="og:description" content="We build thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform for Android, iOS, Web, and Desktop.">
-    <meta property="og:url" content="https://redigit.io/">
-    <!-- TODO(PLACEHOLDER): add a 1200x630 share image named og-image.png at the repo root -->
-    <meta property="og:image" content="https://redigit.io/og-image.png">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ site.tagline }}">
+    <meta property="og:description" content="{{ site.social_description }}">
+    <meta property="og:url" content="{{ site.url }}/">
+    <meta property="og:image" content="{{ site.og_image | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Redigit Softwares — Thoughtful cross-platform software">
-    <meta name="twitter:description" content="We build thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform.">
-    <meta name="twitter:image" content="https://redigit.io/og-image.png">
+    <meta name="twitter:title" content="{{ site.tagline }}">
+    <meta name="twitter:description" content="{{ site.social_description }}">
+    <meta name="twitter:image" content="{{ site.og_image | absolute_url }}">
 
-    <!-- Favicon placeholder (swap favicon.svg for real brand mark / add favicon.ico) -->
+    <!-- Favicons — brand "R" mark (SVG for browsers, PNG for iOS). -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="style.css">
 
@@ -49,12 +64,12 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Redigit Softwares Private Limited",
-        "alternateName": "Redigit",
-        "url": "https://redigit.io/",
-        "sameAs": ["https://redigit.in/"],
-        "description": "Software studio building thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform.",
-        "founder": { "@type": "Person", "name": "Akshay Sharma", "url": "https://ak1.io" }
+        "name": "{{ site.company.legal_name }}",
+        "alternateName": "{{ site.company.short_name }}",
+        "url": "{{ site.url }}/",
+        "sameAs": ["https://redigit.in/", "{{ site.company.github }}", "{{ site.company.linkedin }}"],
+        "description": {{ site.social_description | strip_newlines | jsonify }},
+        "founder": { "@type": "Person", "name": "{{ site.company.founder_name }}", "url": "{{ site.company.founder_url }}" }
     }
     </script>
 </head>
@@ -64,7 +79,7 @@
     <header class="site-header" id="top">
         <div class="header-inner">
             <a class="wordmark" href="#top" aria-label="Redigit — home">
-                Redigit<span class="wordmark-dot" aria-hidden="true">.</span>
+                {% include logo-wordmark.svg %}
             </a>
 
             <nav class="site-nav" aria-label="Primary">
@@ -93,9 +108,10 @@
                 <p class="eyebrow reveal">Redigit Softwares Private Limited</p>
                 <h1 class="hero-title reveal" id="hero-title">We build thoughtful cross-platform software.</h1>
                 <p class="hero-lead reveal">
-                    Redigit is a small, senior software studio. We design and ship apps
-                    and libraries with Kotlin Multiplatform and Compose Multiplatform —
-                    one thoughtful codebase running across Android, iOS, Web, and Desktop.
+                    Redigit is a software product studio. We build apps, libraries,
+                    backends, and developer tools — and we specialize in Kotlin
+                    Multiplatform and Compose Multiplatform: one shared codebase
+                    running across Android, iOS, Web, and Desktop.
                 </p>
                 <div class="hero-actions reveal">
                     <a class="btn btn-primary" href="#contact">Get in touch<span aria-hidden="true">&rarr;</span></a>
@@ -153,32 +169,16 @@
                 </header>
 
                 <div class="work-grid" role="list">
-                    <!-- Featured project -->
-                    <a class="work-card work-card-featured reveal" role="listitem" href="https://github.com/akshay2211/DrawBox" target="_blank" rel="noopener">
-                        <span class="work-tag">Featured · Open source</span>
-                        <h3 class="work-title">DrawBox</h3>
-                        <p class="work-text">A Kotlin Multiplatform drawing library with a pen tool, undo stack, and export — originally Android-only, now running across Android, iOS, Web, and Desktop.</p>
-                        <span class="work-meta">Kotlin Multiplatform · Compose</span>
+                    <!-- Cards are generated from _data/projects.yml — edit that file to add work. -->
+                    {% for project in site.data.projects %}
+                    <a class="work-card{% if project.featured %} work-card-featured{% endif %} reveal" role="listitem" href="{{ project.repo }}" target="_blank" rel="noopener">
+                        <span class="work-tag">{{ project.tag | default: "Open source" }}</span>
+                        <h3 class="work-title">{{ project.name }}</h3>
+                        <p class="work-text">{{ project.description }}</p>
+                        <span class="work-meta">{{ project.stack }}</span>
                         <span class="work-link">View on GitHub<span aria-hidden="true">&rarr;</span></span>
                     </a>
-
-                    <!-- PLACEHOLDER: duplicate this block and fill in real details to add a project. -->
-                    <a class="work-card work-card-placeholder reveal" role="listitem" href="#contact">
-                        <span class="work-tag">Placeholder</span>
-                        <h3 class="work-title">Your project here</h3>
-                        <p class="work-text">TODO: replace with a real project — name, one-line description, tech, and a link to the repo or case study.</p>
-                        <span class="work-meta">Tech stack</span>
-                        <span class="work-link">Add a project<span aria-hidden="true">&rarr;</span></span>
-                    </a>
-
-                    <!-- PLACEHOLDER: duplicate this block and fill in real details to add a project. -->
-                    <a class="work-card work-card-placeholder reveal" role="listitem" href="#contact">
-                        <span class="work-tag">Placeholder</span>
-                        <h3 class="work-title">Your project here</h3>
-                        <p class="work-text">TODO: replace with a real project — name, one-line description, tech, and a link to the repo or case study.</p>
-                        <span class="work-meta">Tech stack</span>
-                        <span class="work-link">Add a project<span aria-hidden="true">&rarr;</span></span>
-                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -188,17 +188,17 @@
             <div class="shell shell-narrow">
                 <header class="section-head reveal">
                     <p class="eyebrow">About Redigit</p>
-                    <h2 class="section-title" id="about-title">A small studio that cares about the details.</h2>
+                    <h2 class="section-title" id="about-title">A studio that cares about the details.</h2>
                 </header>
                 <div class="prose reveal">
                     <p>
                         Redigit Softwares Private Limited is an independent software studio focused on
-                        cross-platform product engineering. We&rsquo;re small on purpose: fewer handoffs,
-                        senior people on the work, and a bias toward simple, durable solutions over
-                        buzzwords.
+                        cross-platform product engineering. We stay lean by design: fewer handoffs,
+                        experienced people on every engagement, and a bias toward simple, durable
+                        solutions over buzzwords.
                     </p>
                     <p>
-                        The studio was founded by <a href="https://ak1.io" target="_blank" rel="noopener">Akshay Sharma</a> —
+                        The studio was founded by <a href="{{ site.company.founder_url }}" target="_blank" rel="noopener">{{ site.company.founder_name }}</a> —
                         a software architect, open-source maintainer, and Kotlin Multiplatform developer.
                         A lot of what we build ends up open source, because we think the best way to earn
                         trust is to show the work.
@@ -219,17 +219,15 @@
                         <ul class="contact-links" role="list">
                             <li>
                                 <span class="contact-label">Email</span>
-                                <!-- TODO(PLACEHOLDER): confirm / replace company email -->
-                                <a href="mailto:hello@redigit.io">hello@redigit.io</a>
+                                <a href="mailto:{{ site.company.email }}">{{ site.company.email }}</a>
                             </li>
                             <li>
                                 <span class="contact-label">GitHub</span>
-                                <a href="https://github.com/RedigitSoft" target="_blank" rel="noopener">github.com/RedigitSoft</a>
+                                <a href="{{ site.company.github }}" target="_blank" rel="noopener">{{ site.company.github | remove: "https://" }}</a>
                             </li>
                             <li>
                                 <span class="contact-label">LinkedIn</span>
-                                <!-- TODO(PLACEHOLDER): replace with the real LinkedIn company page URL -->
-                                <a href="https://www.linkedin.com/company/PLACEHOLDER" target="_blank" rel="noopener">Redigit on LinkedIn</a>
+                                <a href="{{ site.company.linkedin }}" target="_blank" rel="noopener">{{ site.company.short_name }} on LinkedIn</a>
                             </li>
                         </ul>
                     </div>
@@ -246,8 +244,8 @@
                         inline success/error feedback.
                     -->
                     <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
-                        <!-- TODO(PLACEHOLDER): paste your Web3Forms access key here -->
-                        <input type="hidden" name="access_key" value="PLACEHOLDER_WEB3FORMS_ACCESS_KEY">
+                        <!-- Access key comes from web3forms_key in _config.yml -->
+                        <input type="hidden" name="access_key" value="{{ site.web3forms_key }}">
                         <input type="hidden" name="subject" value="New enquiry from redigit.io">
                         <input type="hidden" name="from_name" value="Redigit website">
                         <!-- Honeypot: hidden from users, catches bots -->
@@ -278,16 +276,19 @@
     <footer class="site-footer">
         <div class="shell footer-inner">
             <div class="footer-brand">
-                <a class="wordmark" href="#top">Redigit<span class="wordmark-dot" aria-hidden="true">.</span></a>
-                <p class="footer-copy">&copy; 2026 Redigit Softwares Private Limited. All rights reserved.</p>
-                <!-- TODO(PLACEHOLDER): fill in legal details once available, or remove this line -->
-                <p class="footer-legal">CIN: PLACEHOLDER · GSTIN: PLACEHOLDER · Registered office: PLACEHOLDER</p>
+                <a class="wordmark footer-wordmark" href="#top" aria-label="Redigit Softwares — home">{% include logo-lockup.svg %}</a>
+                <p class="footer-copy">&copy; 2026 {{ site.company.legal_name }}. All rights reserved.</p>
+                {% assign legal = "" %}
+                {% if site.company.cin != "" %}{% assign legal = legal | append: "CIN: " | append: site.company.cin %}{% endif %}
+                {% if site.company.gstin != "" %}{% if legal != "" %}{% assign legal = legal | append: " · " %}{% endif %}{% assign legal = legal | append: "GSTIN: " | append: site.company.gstin %}{% endif %}
+                {% if site.company.registered_office != "" %}{% if legal != "" %}{% assign legal = legal | append: " · " %}{% endif %}{% assign legal = legal | append: "Registered office: " | append: site.company.registered_office %}{% endif %}
+                {% if legal != "" %}<p class="footer-legal">{{ legal }}</p>{% endif %}
             </div>
             <nav class="footer-nav" aria-label="Footer">
-                <a href="mailto:hello@redigit.io">Email</a>
-                <a href="https://github.com/RedigitSoft" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/company/PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a>
-                <a href="https://ak1.io" target="_blank" rel="noopener">ak1.io</a>
+                <a href="mailto:{{ site.company.email }}">Email</a>
+                <a href="{{ site.company.github }}" target="_blank" rel="noopener">GitHub</a>
+                <a href="{{ site.company.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="{{ site.company.founder_url }}" target="_blank" rel="noopener">ak1.io</a>
             </nav>
         </div>
     </footer>

@@ -1,9 +1,9 @@
 # Redigit Softwares Private Limited
 
-> An independent software studio building thoughtful cross-platform apps and
-> libraries with Kotlin Multiplatform and Compose Multiplatform for Android,
-> iOS, Web, and Desktop. Small and senior by design, with an emphasis on craft,
-> performance, and long-term maintainability.
+> An independent software studio building apps, libraries, backends, and
+> developer tools, with a specialty in Kotlin Multiplatform and Compose
+> Multiplatform for Android, iOS, Web, and Desktop. Focused and lean by design,
+> with an emphasis on craft, performance, and long-term maintainability.
 
 This file follows the [llms.txt](https://llmstxt.org) convention to give
 language models a curated, canonical entry point to this site. Everything here
