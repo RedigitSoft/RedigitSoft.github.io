@@ -1,1 +1,297 @@
-hello
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1d1e21">
+
+    <!-- ============================ SEO ============================ -->
+    <title>Redigit Softwares — Thoughtful cross-platform software</title>
+    <meta name="description" content="Redigit Softwares Private Limited builds thoughtful cross-platform apps and libraries — Kotlin Multiplatform and Compose Multiplatform for Android, iOS, Web, and Desktop.">
+    <link rel="canonical" href="https://redigit.io/">
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Redigit Softwares">
+    <meta property="og:title" content="Redigit Softwares — Thoughtful cross-platform software">
+    <meta property="og:description" content="We build thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform for Android, iOS, Web, and Desktop.">
+    <meta property="og:url" content="https://redigit.io/">
+    <!-- TODO(PLACEHOLDER): add a 1200x630 share image named og-image.png at the repo root -->
+    <meta property="og:image" content="https://redigit.io/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Redigit Softwares — Thoughtful cross-platform software">
+    <meta name="twitter:description" content="We build thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform.">
+    <meta name="twitter:image" content="https://redigit.io/og-image.png">
+
+    <!-- Favicon placeholder (swap favicon.svg for real brand mark / add favicon.ico) -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Anti-FOUC: resolve theme before first paint.
+         Priority: saved choice → system preference → dark fallback. -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("redigit-theme");
+                var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+                var theme = saved || (prefersLight ? "light" : "dark");
+                document.documentElement.setAttribute("data-theme", theme);
+            } catch (e) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Redigit Softwares Private Limited",
+        "alternateName": "Redigit",
+        "url": "https://redigit.io/",
+        "sameAs": ["https://redigit.in/"],
+        "description": "Software studio building thoughtful cross-platform apps and libraries with Kotlin Multiplatform and Compose Multiplatform.",
+        "founder": { "@type": "Person", "name": "Akshay Sharma", "url": "https://ak1.io" }
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+        <div class="header-inner">
+            <a class="wordmark" href="#top" aria-label="Redigit — home">
+                Redigit<span class="wordmark-dot" aria-hidden="true">.</span>
+            </a>
+
+            <nav class="site-nav" aria-label="Primary">
+                <a href="#services">Services</a>
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="theme-toggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
+                <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2"></circle>
+                    <path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"></path>
+                </svg>
+                <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- ============================ HERO ============================ -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="shell">
+                <p class="eyebrow reveal">Redigit Softwares Private Limited</p>
+                <h1 class="hero-title reveal" id="hero-title">We build thoughtful cross-platform software.</h1>
+                <p class="hero-lead reveal">
+                    Redigit is a small, senior software studio. We design and ship apps
+                    and libraries with Kotlin Multiplatform and Compose Multiplatform —
+                    one thoughtful codebase running across Android, iOS, Web, and Desktop.
+                </p>
+                <div class="hero-actions reveal">
+                    <a class="btn btn-primary" href="#contact">Get in touch<span aria-hidden="true">&rarr;</span></a>
+                    <a class="btn btn-ghost" href="#work">See our work</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================== SERVICES ========================== -->
+        <section class="section" id="services" aria-labelledby="services-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">What we do</p>
+                    <h2 class="section-title" id="services-title">Services built around shipping quality software.</h2>
+                    <p class="section-lead">From a first prototype to a maintained product, we cover the full path — with an emphasis on craft, performance, and long-term maintainability.</p>
+                </header>
+
+                <ol class="card-grid" role="list">
+                    <li class="card reveal">
+                        <span class="card-index" aria-hidden="true">01</span>
+                        <h3 class="card-title">Mobile App Development</h3>
+                        <p class="card-text">Native-quality Android and iOS apps — clean architecture, smooth UI, and a codebase your team can keep building on.</p>
+                    </li>
+                    <li class="card reveal">
+                        <span class="card-index" aria-hidden="true">02</span>
+                        <h3 class="card-title">Kotlin &amp; Compose Multiplatform</h3>
+                        <p class="card-text">Share business logic and UI across Android, iOS, Web, and Desktop from a single Kotlin codebase — without giving up platform feel.</p>
+                    </li>
+                    <li class="card reveal">
+                        <span class="card-index" aria-hidden="true">03</span>
+                        <h3 class="card-title">Backend &amp; APIs</h3>
+                        <p class="card-text">Pragmatic, well-documented services and APIs to power your product — designed for reliability, observability, and sane scaling.</p>
+                    </li>
+                    <li class="card reveal">
+                        <span class="card-index" aria-hidden="true">04</span>
+                        <h3 class="card-title">UI / UX Design</h3>
+                        <p class="card-text">Interfaces that feel effortless. We design content-first, accessible experiences and hand off implementation-ready systems.</p>
+                    </li>
+                    <li class="card reveal">
+                        <span class="card-index" aria-hidden="true">05</span>
+                        <h3 class="card-title">Consulting</h3>
+                        <p class="card-text">Architecture reviews, multiplatform migrations, and hands-on guidance to help your team move faster with confidence.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ============================ WORK ============================ -->
+        <section class="section" id="work" aria-labelledby="work-title">
+            <div class="shell">
+                <header class="section-head reveal">
+                    <p class="eyebrow">Selected work</p>
+                    <h2 class="section-title" id="work-title">Things we&rsquo;ve built and open-sourced.</h2>
+                    <p class="section-lead">A snapshot of our work. More case studies coming soon.</p>
+                </header>
+
+                <div class="work-grid" role="list">
+                    <!-- Featured project -->
+                    <a class="work-card work-card-featured reveal" role="listitem" href="https://github.com/akshay2211/DrawBox" target="_blank" rel="noopener">
+                        <span class="work-tag">Featured · Open source</span>
+                        <h3 class="work-title">DrawBox</h3>
+                        <p class="work-text">A Kotlin Multiplatform drawing library with a pen tool, undo stack, and export — originally Android-only, now running across Android, iOS, Web, and Desktop.</p>
+                        <span class="work-meta">Kotlin Multiplatform · Compose</span>
+                        <span class="work-link">View on GitHub<span aria-hidden="true">&rarr;</span></span>
+                    </a>
+
+                    <!-- PLACEHOLDER: duplicate this block and fill in real details to add a project. -->
+                    <a class="work-card work-card-placeholder reveal" role="listitem" href="#contact">
+                        <span class="work-tag">Placeholder</span>
+                        <h3 class="work-title">Your project here</h3>
+                        <p class="work-text">TODO: replace with a real project — name, one-line description, tech, and a link to the repo or case study.</p>
+                        <span class="work-meta">Tech stack</span>
+                        <span class="work-link">Add a project<span aria-hidden="true">&rarr;</span></span>
+                    </a>
+
+                    <!-- PLACEHOLDER: duplicate this block and fill in real details to add a project. -->
+                    <a class="work-card work-card-placeholder reveal" role="listitem" href="#contact">
+                        <span class="work-tag">Placeholder</span>
+                        <h3 class="work-title">Your project here</h3>
+                        <p class="work-text">TODO: replace with a real project — name, one-line description, tech, and a link to the repo or case study.</p>
+                        <span class="work-meta">Tech stack</span>
+                        <span class="work-link">Add a project<span aria-hidden="true">&rarr;</span></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ ABOUT ============================ -->
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="shell shell-narrow">
+                <header class="section-head reveal">
+                    <p class="eyebrow">About Redigit</p>
+                    <h2 class="section-title" id="about-title">A small studio that cares about the details.</h2>
+                </header>
+                <div class="prose reveal">
+                    <p>
+                        Redigit Softwares Private Limited is an independent software studio focused on
+                        cross-platform product engineering. We&rsquo;re small on purpose: fewer handoffs,
+                        senior people on the work, and a bias toward simple, durable solutions over
+                        buzzwords.
+                    </p>
+                    <p>
+                        The studio was founded by <a href="https://ak1.io" target="_blank" rel="noopener">Akshay Sharma</a> —
+                        a software architect, open-source maintainer, and Kotlin Multiplatform developer.
+                        A lot of what we build ends up open source, because we think the best way to earn
+                        trust is to show the work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================== CONTACT =========================== -->
+        <section class="section section-contact" id="contact" aria-labelledby="contact-title">
+            <div class="shell">
+                <div class="contact-grid">
+                    <div class="contact-intro reveal">
+                        <p class="eyebrow">Get in touch</p>
+                        <h2 class="section-title" id="contact-title">Let&rsquo;s build something worth shipping.</h2>
+                        <p class="section-lead">Tell us a little about your project and we&rsquo;ll get back to you.</p>
+
+                        <ul class="contact-links" role="list">
+                            <li>
+                                <span class="contact-label">Email</span>
+                                <!-- TODO(PLACEHOLDER): confirm / replace company email -->
+                                <a href="mailto:hello@redigit.io">hello@redigit.io</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">GitHub</span>
+                                <a href="https://github.com/RedigitSoft" target="_blank" rel="noopener">github.com/RedigitSoft</a>
+                            </li>
+                            <li>
+                                <span class="contact-label">LinkedIn</span>
+                                <!-- TODO(PLACEHOLDER): replace with the real LinkedIn company page URL -->
+                                <a href="https://www.linkedin.com/company/PLACEHOLDER" target="_blank" rel="noopener">Redigit on LinkedIn</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--
+                        Contact form powered by Web3Forms (https://web3forms.com) — no backend needed.
+                        SETUP:
+                          1. Get a free Access Key at https://web3forms.com (enter the email that should
+                             receive submissions).
+                          2. Paste the key into the "access_key" hidden input below.
+                        Prefer Formspree instead? Swap the <form> action to
+                        https://formspree.io/f/PLACEHOLDER_FORM_ID and delete the access_key input.
+                        The form also works without JS (standard POST + redirect); script.js just adds
+                        inline success/error feedback.
+                    -->
+                    <form class="contact-form reveal" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- TODO(PLACEHOLDER): paste your Web3Forms access key here -->
+                        <input type="hidden" name="access_key" value="PLACEHOLDER_WEB3FORMS_ACCESS_KEY">
+                        <input type="hidden" name="subject" value="New enquiry from redigit.io">
+                        <input type="hidden" name="from_name" value="Redigit website">
+                        <!-- Honeypot: hidden from users, catches bots -->
+                        <input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="field">
+                            <label for="cf-name">Name</label>
+                            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-email">Email</label>
+                            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="cf-message">Message</label>
+                            <textarea id="cf-message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" type="submit">Send message</button>
+                        <p class="form-status" role="status" aria-live="polite" hidden></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <div class="footer-brand">
+                <a class="wordmark" href="#top">Redigit<span class="wordmark-dot" aria-hidden="true">.</span></a>
+                <p class="footer-copy">&copy; 2026 Redigit Softwares Private Limited. All rights reserved.</p>
+                <!-- TODO(PLACEHOLDER): fill in legal details once available, or remove this line -->
+                <p class="footer-legal">CIN: PLACEHOLDER · GSTIN: PLACEHOLDER · Registered office: PLACEHOLDER</p>
+            </div>
+            <nav class="footer-nav" aria-label="Footer">
+                <a href="mailto:hello@redigit.io">Email</a>
+                <a href="https://github.com/RedigitSoft" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/company/PLACEHOLDER" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://ak1.io" target="_blank" rel="noopener">ak1.io</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
