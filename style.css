@@ -165,6 +165,25 @@ body.scrolled .site-header{
 [data-theme="light"] .icon-sun{display:none}
 [data-theme="light"] .icon-moon{display:block}
 
+/* ---- Mobile nav toggle (hamburger) ---- */
+.nav-toggle{
+    display:none;                 /* desktop: inline nav is shown instead */
+    align-items:center;
+    justify-content:center;
+    width:42px;height:42px;
+    flex-shrink:0;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--card);
+    color:var(--soft);
+    cursor:pointer;
+    transition:color .2s ease,border-color .2s ease;
+}
+.nav-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.nav-toggle .icon-close{display:none}
+.nav-toggle[aria-expanded="true"] .icon-menu{display:none}
+.nav-toggle[aria-expanded="true"] .icon-close{display:block}
+
 /* ============================================================
    Buttons
    ============================================================ */
@@ -500,7 +519,24 @@ body.scrolled .site-header{
 }
 @media (max-width:680px){
     .shell,.header-inner{padding-left:20px;padding-right:20px}
-    .site-nav{display:none}          /* keep the bar clean on phones; sections still reachable by scroll */
+    .nav-toggle{display:inline-flex}      /* show hamburger */
+    .theme-toggle{margin-left:auto}       /* pin controls right (nav no longer pushes them) */
+    /* nav becomes a slide-down panel under the header */
+    .site-nav{
+        display:none;
+        position:absolute;
+        top:100%;left:0;right:0;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;margin:0;
+        padding:6px 20px 14px;
+        background:var(--header-bg);
+        backdrop-filter:saturate(140%) blur(14px);
+        -webkit-backdrop-filter:saturate(140%) blur(14px);
+        border-bottom:1px solid var(--line);
+    }
+    .site-header.nav-open .site-nav{display:flex}
+    .site-nav a{padding:14px 2px;font-size:14px;border-top:1px solid var(--line)}
     .section{padding:76px 0}
     .hero{padding:140px 0 84px;min-height:auto}
     .section-head{margin-bottom:40px}

@@ -54,6 +54,31 @@
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
 
+    /* ---- Mobile nav (hamburger) ---------------------------- */
+    var navToggle = document.querySelector(".nav-toggle");
+    var header = document.querySelector(".site-header");
+    var siteNav = document.getElementById("site-nav");
+    if (navToggle && header) {
+        var setNav = function (open) {
+            header.classList.toggle("nav-open", open);
+            navToggle.setAttribute("aria-expanded", String(open));
+            navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        };
+        navToggle.addEventListener("click", function () {
+            setNav(!header.classList.contains("nav-open"));
+        });
+        // close after tapping a link
+        if (siteNav) {
+            siteNav.addEventListener("click", function (e) {
+                if (e.target.closest("a")) setNav(false);
+            });
+        }
+        // close on Escape
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") setNav(false);
+        });
+    }
+
     /* ---- Reveal on scroll ---------------------------------- */
     var revealEls = document.querySelectorAll(".reveal");
     var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
